@@ -1,0 +1,23 @@
+<h1>Notebooks:-</h1>
+  <table class="table">
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th>Creation Date</th>
+      <th></th>
+    </tr>
+
+    <% @notebooks.each do |notebook| %>
+      <tr>
+        <td><%= notebook.title %></td>
+        <th></th>
+        <td><%= notebook.creation_date %></td>
+        <th></th>
+        <td><%= link_to 'Destroy', notebook_path(notebook), method: :delete,
+              data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Show', notebook_path(notebook), class: 'btn btn-info' %></td>
+      </tr>
+    <% end %>
+  </table>
+<%= link_to 'Create Notebook',new_notebook_path, class: 'btn btn-primary ' %>
+<%= link_to 'Back', search_results_path, class: 'btn btn-primary float-right'%>

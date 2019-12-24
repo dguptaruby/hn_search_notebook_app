@@ -1,0 +1,22 @@
+<h1><%= "Associated Search Results of #{ @search_notebook.title } :-"%></h1>
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th></th>
+    <th>Author</th>
+    <th></th>
+    <th>Creation Date</th>
+    <th></th>
+  </tr>
+
+  <% @search_notebook.search_results.each do |result| %>
+    <tr>
+      <td><%= result.id %></td>
+      <td><%= result.hn_author %></td>
+      <td><%= result.creation_date %></td>
+      <td><%= link_to 'Show', search_result_path(result.id), class: 'btn btn-warning' %></td>
+      <td><%= link_to 'Destroy', destroy_result_notebook_path(id: params[:id], result_id: result.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'Back', notebooks_path, class: 'btn btn-primary'%>

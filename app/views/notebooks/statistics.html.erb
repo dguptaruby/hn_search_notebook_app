@@ -1,0 +1,8 @@
+<h1>Statistics</h1>
+<%= link_to 'Notebooks', notebooks_path, class: 'btn btn-primary float-right'%>
+<%= link_to 'Search', search_results_path, class: 'btn btn-primary float-right'%>
+<%= form_for :notebooks, url: statistics_notebooks_path, method: :post do |f| %>
+  <%= f.select :digit, options_for_select(search_query_range, @start_date), prompt: 'select range'%>
+  <%= f.submit 'submit',class: 'btn btn-primary btn-sm' %>
+<% end %>
+<%= column_chart @data %>
