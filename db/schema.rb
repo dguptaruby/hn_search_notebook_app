@@ -24,10 +24,12 @@ ActiveRecord::Schema.define(version: 2019_12_24_081403) do
   create_table "search_notebooks", force: :cascade do |t|
     t.string "title"
     t.string "creation_date"
+    t.integer "search_result_id"
+    t.integer "search_query_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "search_query_id"
     t.index ["search_query_id"], name: "index_search_notebooks_on_search_query_id"
+    t.index ["search_result_id"], name: "index_search_notebooks_on_search_result_id"
   end
 
   create_table "search_queries", force: :cascade do |t|
@@ -44,10 +46,10 @@ ActiveRecord::Schema.define(version: 2019_12_24_081403) do
     t.string "url"
     t.string "creation_date"
     t.string "hn_tag"
+    t.integer "search_notebook_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "search_query_id"
-    t.integer "search_notebook_id"
     t.index ["search_notebook_id"], name: "index_search_results_on_search_notebook_id"
     t.index ["search_query_id"], name: "index_search_results_on_search_query_id"
   end
