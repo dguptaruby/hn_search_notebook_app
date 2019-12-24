@@ -1,0 +1,35 @@
+<%= render partial: 'shared/add_modal_pop' %>
+<div class="result" id="result">
+  <h1>Search Result</h1>
+  <table class="table">
+    <tr>
+      <th>Author</th>
+      <th>Points</th>
+      <th>Url</th>
+      <th>Created At</th>
+      <th>Tags</th>
+      <th>Select Notebooks</th>
+      <th></th>
+    </tr>
+
+    <% @json_data['hits'].each do |res| %>
+      <tr>
+        <%= form_for :search_result, url: search_results_path, method: :post do |f|%>
+          <%= f.hidden_field :hn_author, value: res['author'] %>
+          <%= f.hidden_field :author_karma_points, value: res['points'] %>
+          <%= f.hidden_field :url, value: res['url'] %>
+          <%= f.hidden_field :creation_date, value: res['created_at'] %>
+          <%= f.hidden_field :hn_tag, value: res['_tags'] %>
+
+          <td><%= res['author'] %></td>
+          <td><%= res['points'] %></td>
+          <td><%= res['url'] %></td>
+          <td><%= res['created_at'] %></td>
+          <td><%= res['_tags'] %></td>
+          <td><%= f.select :search_notebook_id, options_from_collection_for_select(notebooks, 'id', 'title'), prompt: 'select notebook'%></td>
+          <td><%= f.submit 'Add', class: 'btn btn-primary' %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,10 @@
+<%= form_tag(search_results_path, method: "get", class: 'navbar-form navbar-left p-2') do %>
+  <div class='input-group'>
+    <%= search_field_tag :search, params[:search], placeholder: 'Search', class: 'form-control' %>
+    <div class="input-group-btn">
+      <%= button_tag "Search", class: 'btn btn-info glyphicon glyphicon-search'%>
+    </div>
+  </div>
+<% end %>
+<%= link_to 'Notebooks', notebooks_path, class: 'btn btn-info' %>
+<%= link_to 'Back', root_path, class: 'btn btn-primary float-right' %>
