@@ -1,0 +1,18 @@
+<h1>Search Result</h1>
+<table class="table">
+  <tr>
+    <th>Author</th>
+    <th>Author Karma Points</th>
+    <th>URL</th>
+    <th>Creation Date</th>
+    <th>Tag</th>
+  </tr>
+  <tr>
+    <td><%= @search_result.hn_author %></td>
+    <td><%= @search_result.author_karma_points %></td>
+    <td><%= @search_result.url %></td>
+    <td><%= @search_result.creation_date %></td>
+    <td><%= @search_result.hn_tag.split(' ').join(', ') %></td>
+  </tr>
+</table>
+<%= link_to 'Back', notebooks_path, class: 'btn btn-primary'%>
