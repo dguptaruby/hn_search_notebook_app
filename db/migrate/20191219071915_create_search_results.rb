@@ -7,6 +7,7 @@ class CreateSearchResults < ActiveRecord::Migration[5.2]
       t.string :creation_date
       t.string :hn_tag
       t.references :search_notebook, foreign_key: true
+      t.references :search_query, foreign_key: true
       t.timestamps
     end
   end
