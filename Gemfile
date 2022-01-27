@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
 gem 'jquery-rails'
-gem 'sidekiq', '~> 5.0'
+gem 'sidekiq', '~> 6.4'
 gem 'whenever', require: false
 gem "chartkick"
 gem 'will_paginate'
